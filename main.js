@@ -1,23 +1,23 @@
-window.onload = function () {
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas.getContext('2d');
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
-  // Resize canvas
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight * 0.8;
+canvas.width = window.innerWidth * 0.9;
+canvas.height = window.innerHeight * 0.6;
 
-  // Background color (optional)
-  ctx.fillStyle = "#001F3F"; // dark blue
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Placeholder animation (orange circle)
+let x = 50;
+let y = canvas.height / 2;
+let dx = 2;
 
-  // Test content
-  ctx.fillStyle = "#FFFFFF";
-  ctx.font = "36px sans-serif";
-  ctx.fillText("🚀 Garage to Galaxy: Coming Soon!", 50, 100);
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#FFA500";
+    ctx.beginPath();
+    ctx.arc(x, y, 30, 0, Math.PI * 2);
+    ctx.fill();
+    x += dx;
+    if (x > canvas.width || x < 0) dx *= -1;
+    requestAnimationFrame(draw);
+}
 
-  // Add test visual (like a wheel)
-  ctx.beginPath();
-  ctx.arc(canvas.width / 2, canvas.height / 2, 40, 0, Math.PI * 2);
-  ctx.fillStyle = "orange";
-  ctx.fill();
-};
+draw();
