@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Garage to Galaxy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>🚗 Garage to Galaxy 🌌</h1>
-  <canvas id="gameCanvas"></canvas>
-  <script src="main.js"></script>
-</body>
-</html>
+window.onload = function () {
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Set canvas size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Draw a test circle
+  ctx.fillStyle = 'orange';
+  ctx.beginPath();
+  ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Draw some text
+  ctx.fillStyle = 'white';
+  ctx.font = '24px Arial';
+  ctx.fillText('Garage to Galaxy Test Render', 50, 50);
+};
